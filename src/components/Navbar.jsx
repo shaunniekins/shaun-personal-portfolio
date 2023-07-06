@@ -2,20 +2,33 @@ import { useState } from "react";
 import React from "react";
 import Contact from "./Contact";
 
-const Navbar = () => {
+const Navbar = ({ setShowAllProjects }) => {
   const [showModal, setShowModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCloseIcon, setShowCloseIcon] = useState(false);
-  const links = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    // {name: 'Contact', link: '/'},
-  ];
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setShowCloseIcon(!showCloseIcon);
   };
+
+  const handleViewAllClick = (event) => {
+    event.preventDefault();
+    const target = event.currentTarget.getAttribute("href");
+    const offsetTop = document.querySelector(target)?.offsetTop || 0;
+
+    setShowAllProjects(false);
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const links = [
+    { name: "About", link: "#about" },
+    { name: "Projects", link: "#projects" },
+    // {name: 'Contact', link: '/'},
+  ];
 
   return (
     <div className=" flex justify-center sticky top-0 z-40 rounded-b-3xl shadow-md dark:bg-gray-900 backdrop-filter backdrop-blur">
@@ -23,7 +36,9 @@ const Navbar = () => {
         <div className="container mx-auto px-10 py-6">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-sm lg:text-2xl text-gray-800 hover:text-gray-400 duration-500">
-              <a href="#intro">Shaun Niel Ochavo</a>
+              <a href="#intro" onClick={(event) => handleViewAllClick(event)}>
+                Shaun Niel Ochavo
+              </a>
             </h1>
             <div className="lg:hidden">
               {/* Menu Icon */}
@@ -61,7 +76,8 @@ const Navbar = () => {
                 <li key={link.name}>
                   <a
                     href={link.link}
-                    className="text-gray-800 hover:text-gray-400 duration-500">
+                    className="text-gray-800 hover:text-gray-400 duration-500"
+                    onClick={(event) => handleViewAllClick(event)}>
                     {link.name}
                   </a>
                 </li>
