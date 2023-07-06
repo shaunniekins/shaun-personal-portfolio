@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import Contact from "./Contact";
 
-const Header = () => {
+const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCloseIcon, setShowCloseIcon] = useState(false);
@@ -18,8 +18,8 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-center sticky top-0 z-40 ">
-      <div className="bg-white w-10/12 max-w-screen-xl sticky h-auto rounded-2xl shadow-md dark:bg-gray-900 flex items-center">
+    <div className=" flex justify-center sticky top-0 z-40 rounded-b-3xl shadow-md dark:bg-gray-900 backdrop-filter backdrop-blur">
+      <div className="mx-12 md:mx-[10rem] xl:mx-[20rem] w-10/12 max-w-screen-xl flex items-center ">
         <div className="container mx-auto px-10 py-6">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-sm lg:text-2xl text-gray-800 hover:text-gray-400 duration-500">
@@ -148,4 +148,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

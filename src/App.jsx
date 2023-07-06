@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Intro from "./components/Intro";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -8,11 +8,11 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="select-none bg-white-100">
-      {/* <Header /> */}
-      {/* <div className="mx-12  xl:mx-[20rem]"> */}
-      <Intro />
+      {/* <div className="bg-slate-500 pt-8 sticky top-0 "> */}
+      <Navbar />
       {/* </div> */}
-      <div className="mx-12 xl:mx-[20rem]">
+      <Intro />
+      <div className="mx-12 md:mx-[10rem] xl:mx-[20rem]">
         <About />
         <Projects />
         <Footer />
