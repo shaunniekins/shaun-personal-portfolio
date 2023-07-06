@@ -7,6 +7,9 @@
     .min-h-50vh {
       min-height: 50vh;
     }
+    .min-h-60vh {
+      min-height: 60vh;
+    }
     .min-h-80vh {
       min-height: 80vh;
     }
