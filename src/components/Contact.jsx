@@ -1,6 +1,6 @@
 import React from "react";
 
-const Contact = ({ showModal, setShowModal }) => {
+const Contact = ({ showModal, setShowModal, theme }) => {
   return (
     <>
       {showModal ? (
@@ -8,13 +8,16 @@ const Contact = ({ showModal, setShowModal }) => {
           <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none w-full p-4 md:inset-0 h-modal md:h-full">
             <div className="relative w-full h-full max-w-md md:h-auto">
               {/* content */}
-              <div className="relative bg-white shadow dark:bg-gray-700 rounded-2xl">
+              <div
+                className={`relative  rounded-2xl ${
+                  theme === "dark" ? "bg-[#1A202C]" : "bg-white"
+                }`}>
                 {/* header */}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h4 className="text-xl font-semibold">Get in touch</h4>
                   <button
                     type="button"
-                    className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                    className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-red-500 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                     data-modal-toggle="authentication-modal"
                     onClick={() => setShowModal(false)}>
                     <svg
@@ -38,7 +41,7 @@ const Contact = ({ showModal, setShowModal }) => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        className="block mb-2 text-sm font-medium">
                         Name
                       </label>
                       <input
@@ -53,7 +56,7 @@ const Contact = ({ showModal, setShowModal }) => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        className="block mb-2 text-sm font-medium">
                         Email
                       </label>
                       <input
@@ -68,7 +71,7 @@ const Contact = ({ showModal, setShowModal }) => {
                     <div>
                       <label
                         htmlFor="msg"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        className="block mb-2 text-sm font-medium">
                         Message
                       </label>
                       <textarea
@@ -86,11 +89,11 @@ const Contact = ({ showModal, setShowModal }) => {
                       Send
                     </button>
                   </form>
-                  <h5 className="flex justify-center pt-5 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  <h5 className="flex justify-center pt-5 block mb-2 text-sm font-medium">
                     OR
                   </h5>
                   <a href="mailto:shaunniel02@gmail.com?subject=Feedback">
-                    <h6 className="flex justify-center pt-3 block mb-2 text-sm font-medium text-gray-900 dark:text-white underline hover:text-gray-400 duration-700">
+                    <h6 className="flex justify-center pt-3 block mb-2 text-sm font-medium hover:text-gray-500 duration-700">
                       shaunniel02@gmail.com
                     </h6>
                   </a>

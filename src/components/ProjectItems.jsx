@@ -9,6 +9,7 @@ const ProjectItems = ({
   repoLink,
   count,
   showAllProjects,
+  theme,
 }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const totalImages = imgUrls.length;
@@ -35,7 +36,9 @@ const ProjectItems = ({
             {stack.map((item) => (
               <span
                 key={item}
-                className="px-2 py-1 font-semibold border-2 border-stone-900 rounded-md">
+                className={`px-2 py-1 font-semibold border-2 rounded-md ${
+                  theme === "dark" ? "border-white" : "border-stone-900"
+                }`}>
                 {item}
               </span>
             ))}
@@ -44,7 +47,7 @@ const ProjectItems = ({
             <a
               href={demoLink}
               target="_blank"
-              className="hover:bg-gray-200 cursor-pointer p-1 rounded-md flex items-center duration-500">
+              className="hover:bg-gray-400 cursor-pointer p-1 rounded-md flex items-center duration-500">
               <h8 className="flex items-center gap-x-2">
                 <p className="hidden md:block">Live Demo</p>
                 <ion-icon name="open"></ion-icon>

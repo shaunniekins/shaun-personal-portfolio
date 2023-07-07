@@ -2,8 +2,13 @@ import { useState } from "react";
 import React from "react";
 import Contact from "./Contact";
 
-const Navbar = ({ setShowAllProjects }) => {
-  const [showModal, setShowModal] = useState(false);
+const Navbar = ({
+  setShowAllProjects,
+  toggleTheme,
+  theme,
+  showModal,
+  setShowModal,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCloseIcon, setShowCloseIcon] = useState(false);
 
@@ -31,11 +36,21 @@ const Navbar = ({ setShowAllProjects }) => {
   ];
 
   return (
-    <div className=" flex justify-center sticky top-0 z-40 rounded-b-3xl shadow-md dark:bg-gray-900 backdrop-filter backdrop-blur">
+    <div
+      className={`flex justify-center sticky top-0 z-40 rounded-b-3xl   ${
+        theme === "dark" ? "text-white" : "text-gray-800"
+      } ${
+        theme === "dark"
+          ? "shadow-sm shadow-white"
+          : "shadow-md dark:bg-gray-900"
+      } backdrop-filter backdrop-blur`}>
       <div className="mx-12 md:mx-[10rem] xl:mx-[20rem] w-10/12 max-w-screen-xl flex items-center ">
         <div className="container mx-auto px-10 py-6">
           <div className="flex justify-between items-center">
-            <h1 className="font-bold text-sm lg:text-2xl text-gray-800 hover:text-gray-400 duration-500">
+            <h1
+              className={
+                "font-bold text-sm lg:text-2xl  hover:text-gray-400 duration-500"
+              }>
               <a href="#intro" onClick={(event) => handleViewAllClick(event)}>
                 Shaun Niel Ochavo
               </a>
@@ -76,14 +91,14 @@ const Navbar = ({ setShowAllProjects }) => {
                 <li key={link.name}>
                   <a
                     href={link.link}
-                    className="text-gray-800 hover:text-gray-400 duration-500"
+                    className="hover:text-gray-400 duration-500"
                     onClick={(event) => handleViewAllClick(event)}>
                     {link.name}
                   </a>
                 </li>
               ))}
               <li
-                className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+                className="hover:text-gray-400 duration-500 cursor-pointer"
                 onClick={() => setShowModal(true)}>
                 Contact
               </li>
@@ -92,7 +107,7 @@ const Navbar = ({ setShowAllProjects }) => {
                   href="https://drive.google.com/drive/folders/1vrfQt_FnG3P6B1Yo_Bou5ivNvKr6jiel?usp=share_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-800 hover:text-gray-400 duration-500 flex items-center space-x-1">
+                  className="hover:text-gray-400 duration-500 flex items-center space-x-1">
                   Resume
                   <svg
                     stroke="currentColor"
@@ -112,6 +127,15 @@ const Navbar = ({ setShowAllProjects }) => {
                   </svg>
                 </a>
               </li>
+              <li
+                className="hover:text-gray-400 duration-500 flex items-center space-x-1 text-xl"
+                onClick={toggleTheme}>
+                {theme === "light" ? (
+                  <ion-icon name="moon-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="sunny-outline"></ion-icon>
+                )}
+              </li>
             </ul>
           </div>
           {/* Mobile Menu */}
@@ -121,12 +145,12 @@ const Navbar = ({ setShowAllProjects }) => {
                 <a
                   key={link.name}
                   href={link.link}
-                  className="text-gray-800 hover:text-gray-400 duration-500 mb-4">
+                  className="hover:text-gray-400 duration-500 mb-4">
                   {link.name}
                 </a>
               ))}
               <p
-                className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer mb-4"
+                className="hover:text-gray-400 duration-500 cursor-pointer mb-4"
                 onClick={() => setShowModal(true)}>
                 Contact
               </p>
@@ -134,7 +158,7 @@ const Navbar = ({ setShowAllProjects }) => {
                 href="https://drive.google.com/drive/folders/1vrfQt_FnG3P6B1Yo_Bou5ivNvKr6jiel?usp=share_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-800 hover:text-gray-400 duration-500 flex items-center space-x-1">
+                className="hover:text-gray-400 duration-500 flex items-center space-x-1">
                 Resume
                 <svg
                   stroke="currentColor"
@@ -159,7 +183,11 @@ const Navbar = ({ setShowAllProjects }) => {
       </div>
 
       {/* Form Modal */}
-      <Contact showModal={showModal} setShowModal={setShowModal} />
+      {/* <Contact
+        showModal={showModal}
+        setShowModal={setShowModal}
+        theme={theme}
+      /> */}
     </div>
   );
 };

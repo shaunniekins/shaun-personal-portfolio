@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import projectData from "../data/projectData";
 import ProjectItems from "./ProjectItems";
 
-const Projects = ({ showAllProjects, setShowAllProjects }) => {
+const Projects = ({ showAllProjects, setShowAllProjects, theme }) => {
   let count = 0;
 
   const handleViewAllClick = () => {
@@ -46,13 +46,16 @@ const Projects = ({ showAllProjects, setShowAllProjects }) => {
               repoLink={project.repoLink}
               count={count++}
               showAllProjects={showAllProjects}
+              theme={theme}
             />
           ))}
           {/* {count > 2 && ( */}
           {!showAllProjects && (
             <div className="flex items-center justify-center">
               <button
-                className="px-5 py-2 border-2 border-stone-900 rounded-2xl shadow-2xl hover:scale-110 bg-white text-black transition duration-300 ease-out hover:ease-in flex items-center gap-x-2"
+                className={`px-5 py-2 border-2  rounded-2xl shadow-2xl hover:scale-110 transition duration-300 ease-out hover:ease-in flex items-center gap-x-2 ${
+                  theme === "dark" ? "border-white" : "border-stone-900"
+                }`}
                 onClick={handleViewAllClick}>
                 <ion-icon name="eye-outline"></ion-icon>
                 View All

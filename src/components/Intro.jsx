@@ -2,22 +2,37 @@ import React, { useState, useEffect, useRef } from "react";
 import Contact from "./Contact";
 import Navbar from "./Navbar";
 
-const Intro = () => {
-  const [showModal, setShowModal] = useState(false);
+const Intro = ({ theme, showModal, setShowModal }) => {
   const linkedinButtonRef = useRef(null);
   const contactButtonRef = useRef(null);
+  const [currentImage, setCurrentImage] = useState(0);
+  const imageUrls = ["./assets/shaun.jpg", "./assets/shaun1.jpeg"];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % imageUrls.length);
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [imageUrls.length]);
 
   return (
     <>
       <div
         id="intro"
-        className="pt-28 min-h-60vh md:min-h-90vh shadow-md dark:bg-gray-900  -mt-20">
+        className={`pt-28 min-h-60vh md:min-h-90vh  -mt-20 ${
+          theme === "dark"
+            ? "shadow-md shadow-white"
+            : "shadow-md dark:bg-gray-900"
+        }`}>
         {/* <Navbar /> */}
         <div className="mx-12 md:mx-[10rem] xl:mx-[20rem] flex flex-col py-10 md:py-48 md:flex-row justify-start items-center">
           <div className="flex flex-col items-center md:items-end md:flex-row">
-            <div className="rounded-full overflow-hidden w-44 h-44 md:w-64 md:h-64 mb-4 md:mb-0 md:mr-8">
+            <div className="rounded-full overflow-hidden w-44 h-44 md:w-64 md:h-64 mb-4 md:mb-0 md:mr-10">
               <img
-                src="./assets/shaun.jpg"
+                src={imageUrls[currentImage]}
                 alt="Shaun Profile Picture"
                 className="w-full h-full object-cover"
               />
@@ -61,12 +76,17 @@ const Intro = () => {
           </div>
 
           {showModal && (
-            <Contact showModal={showModal} setShowModal={setShowModal} />
+            <Contact
+              showModal={showModal}
+              setShowModal={setShowModal}
+              theme={theme}
+            />
           )}
         </div>
       </div>
-      <div className="flex justify-center pt-5">
-        <img src="./assets/arrow-down.gif" alt="Arrow Down GIF" />
+
+      <div className="flex justify-center pt-10 animate-bounce transform rotate-180 text-4xl">
+        <ion-icon name="arrow-down-outline" className="Arrow Down"></ion-icon>
       </div>
     </>
   );
