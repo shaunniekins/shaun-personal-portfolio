@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "flowbite": "^1.5.5",
     "flowbite-react": "^0.3.7",
     "ionicons": "^7.1.2",

@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = ({ showModal, setShowModal, theme }) => {
+  const form = useRef();
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_536o1vo",
+        "template_yizv08u",
+        form.current,
+        "r_fDYFQtdYgX_4GyY"
+      )
+      .then(
+        (result) => {
+          // console.log(result.text);
+          setShowModal(false);
+          setIsEmailSent(true);
+          resetForm();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  const resetForm = () => {
+    form.current.reset();
+    setIsEmailSent(false);
+  };
+
   return (
     <>
       {showModal ? (
@@ -37,17 +69,17 @@ const Contact = ({ showModal, setShowModal, theme }) => {
                 </div>
                 {/* body */}
                 <div className="px-6 py-6 lg:px-8">
-                  <form className="space-y-6" action="#">
+                  <form className="space-y-6" ref={form} onSubmit={sendEmail}>
                     <div>
                       <label
-                        htmlFor="name"
+                        htmlFor="use_name"
                         className="block mb-2 text-sm font-medium">
                         Name
                       </label>
                       <input
                         type="text"
-                        name="name"
-                        id="name"
+                        name="user_name"
+                        id="user_name"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="Your name"
                         required
@@ -55,14 +87,14 @@ const Contact = ({ showModal, setShowModal, theme }) => {
                     </div>
                     <div>
                       <label
-                        htmlFor="email"
+                        htmlFor="user_email"
                         className="block mb-2 text-sm font-medium">
                         Email
                       </label>
                       <input
                         type="email"
-                        name="email"
-                        id="email"
+                        name="user_email"
+                        id="user_email"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="example@email.com"
                         required
@@ -70,14 +102,14 @@ const Contact = ({ showModal, setShowModal, theme }) => {
                     </div>
                     <div>
                       <label
-                        htmlFor="msg"
+                        htmlFor="user_message"
                         className="block mb-2 text-sm font-medium">
                         Message
                       </label>
                       <textarea
                         type="text"
-                        name="msg"
-                        id="msg"
+                        name="user_message"
+                        id="user_message"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="Your message"
                         required
