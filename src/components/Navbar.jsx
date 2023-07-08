@@ -44,28 +44,26 @@ const Navbar = ({
           ? "shadow-sm shadow-white"
           : "shadow-md dark:bg-gray-900"
       } backdrop-filter backdrop-blur`}>
-      <div className="mx-12 md:mx-[10rem] xl:mx-[20rem] w-10/12 max-w-screen-xl flex items-center ">
-        <div className="container mx-auto px-10 py-6">
+      <div className="mx-10 md:mx-[10rem] xl:mx-[20rem] w-10/12 max-w-screen-xl flex items-center ">
+        <div className="container mx-auto px-2 py-6">
           <div className="flex justify-between items-center">
-            <h1
-              className={
-                "font-bold text-sm lg:text-2xl  hover:text-gray-400 duration-500"
-              }>
+            <h1 className="font-bold text-sm lg:text-2xl hover:text-gray-400 duration-500">
               <a href="#intro" onClick={(event) => handleViewAllClick(event)}>
                 Shaun Niel Ochavo
               </a>
             </h1>
-            <div className="lg:hidden">
+            <div className="lg:hidden flex items-center">
               {/* Menu Icon */}
               <button
                 type="button"
-                className="text-gray-800 hover:text-gray-400 duration-500"
+                className="hover:text-gray-400 duration-500 ml-4"
                 onClick={toggleMenu}>
                 {showCloseIcon ? (
                   <svg
                     className="w-6 h-6 fill-current"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+                    {/* Close Icon SVG */}
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -77,6 +75,7 @@ const Navbar = ({
                     className="w-6 h-6 fill-current"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
+                    {/* Menu Icon SVG */}
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -85,8 +84,19 @@ const Navbar = ({
                   </svg>
                 )}
               </button>
+              {/* Theme Changer Icon */}
+              <div
+                className="text-xl hover:text-gray-400 duration-500 ml-4 flex items-center"
+                onClick={toggleTheme}>
+                {theme === "light" ? (
+                  <ion-icon name="moon-outline" className="mr-1"></ion-icon>
+                ) : (
+                  <ion-icon name="sunny-outline" className="mr-1"></ion-icon>
+                )}
+                {/* <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span> */}
+              </div>
             </div>
-            <ul className="hidden lg:flex items-center space-x-8">
+            <ul className="hidden lg:flex items-center space-x-8 ">
               {links.map((link) => (
                 <li key={link.name}>
                   <a
@@ -183,11 +193,7 @@ const Navbar = ({
       </div>
 
       {/* Form Modal */}
-      {/* <Contact
-        showModal={showModal}
-        setShowModal={setShowModal}
-        theme={theme}
-      /> */}
+      {/* <Contact showModal={showModal} setShowModal={setShowModal} theme={theme} /> */}
     </div>
   );
 };
