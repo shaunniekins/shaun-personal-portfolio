@@ -50,10 +50,10 @@ const ProjectItems = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-gray-400 cursor-pointer p-1 rounded-md flex items-center duration-500">
-                <h8 className="flex items-center gap-x-2">
+                <h6 className="flex items-center gap-x-2">
                   <p className="hidden md:block">Live Demo</p>
                   <ion-icon name="open"></ion-icon>
-                </h8>
+                </h6>
               </a>
             )}
             {repoLink && (
@@ -62,15 +62,15 @@ const ProjectItems = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:bg-gray-400 cursor-pointer p-1 rounded-md flex items-center duration-500">
-                <h8 className="flex items-center gap-x-2">
+                <h6 className="flex items-center gap-x-2">
                   <p className="hidden md:block">Code Repo</p>
                   <ion-icon name="logo-github"></ion-icon>
-                </h8>
+                </h6>
               </a>
             )}
           </div>
         </div>
-        <div className="image-proj flex flex-1 justify-center  text-purple-900">
+        <div className="image-proj hidden lg:flex flex-1 justify-center text-purple-900">
           <button
             onClick={handlePrevImage}
             className="-mr-14 transition-transform duration-300 ease-in-out transform hover:scale-125">

@@ -18,9 +18,9 @@ function Footer({ theme }) {
             <ion-icon name="logo-github" size="small"></ion-icon>
           </div>
         </a>
-        <a href="https://www.instagram.com/shaunniel.ochavo/" target="_blank">
+        <a href="https://www.facebook.com/shaunniel.ochavo" target="_blank">
           <div className="hover:bg-gray-400 cursor-pointer p-1 rounded-md flex items-center duration-500">
-            <ion-icon name="logo-instagram" size="small"></ion-icon>
+            <ion-icon name="logo-facebook" size="small"></ion-icon>
           </div>
         </a>
       </div>

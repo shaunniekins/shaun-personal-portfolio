@@ -43,7 +43,7 @@ const Intro = ({ theme, showModal, setShowModal }) => {
               </h2>
 
               <h3 className="text-base md:text-2xl md:mb-10">
-                Front-end Developer
+                Fullstack Web Developer
               </h3>
               <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-4 md:mt-0 ">
                 <button

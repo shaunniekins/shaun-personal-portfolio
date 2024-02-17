@@ -11,8 +11,9 @@ const About = () => {
       <div className="flex flex-col-reverse md:flex-row justify-center items-center">
         <div className="flex-shrink text-justify">
           <p>
-            Hi, my name is Shaun Niel Ochavo. I am a Front-end Developer. I love
-            creating interactive interfaces and developing web applications.
+            Hi, my name is Shaun Niel Ochavo. I am a Fullstack Web Developer. I
+            love creating interactive interfaces and developing web
+            applications.
           </p>
         </div>
       </div>
