@@ -1,5 +1,29 @@
 export default [
   {
+    title: "SN Mart",
+    description:
+      "SN Mart is an e-commerce web application designed to showcase products of store. It also aids stores, vendors and admin for the real-time inventory tracking system",
+    imgUrls: [
+      "./assets/projects/sn-mart/sm1.png",
+      "./assets/projects/sn-mart/sm2.png",
+      "./assets/projects/sn-mart/sm3.png",
+      "./assets/projects/sn-mart/sm4.png",
+      "./assets/projects/sn-mart/sm5.png",
+      "./assets/projects/sn-mart/sm6.png",
+      "./assets/projects/sn-mart/sm7.png",
+      "./assets/projects/sn-mart/sm8.png",
+      "./assets/projects/sn-mart/sm9.png",
+      "./assets/projects/sn-mart/sm10.png",
+      "./assets/projects/sn-mart/sm11.png",
+      "./assets/projects/sn-mart/sm12.png",
+      "./assets/projects/sn-mart/sm13.png",
+      "./assets/projects/sn-mart/sm14.png",
+    ],
+    stack: ["Next", "TailwindCSS", "Redux", "Supabase"],
+    demoLink: "https://sn-mart.vercel.app/",
+    // repoLink: "https://github.com/shaunniekins/evacuation-management-system",
+  },
+  {
     title: "Evacuation Management System",
     description:
       "Evacuation Management System is a comprehensive web application designed to assist local government units (LGUs) in efficiently managing and monitoring evacuation processes.",
@@ -46,7 +70,7 @@ export default [
       "./assets/projects/sleep-monitor/sleep-monitor-1.png",
       "./assets/projects/sleep-monitor/sleep-monitor-2.png",
     ],
-    stack: ["HTML", "CSS", "JavaScript", "Java"],
+    stack: ["HTML", "CSS", "JavaScript"],
     demoLink: "https://sleep-monitor-storybook.netlify.app/",
     repoLink: "https://github.com/shaunniekins/sleep-monitor",
   },

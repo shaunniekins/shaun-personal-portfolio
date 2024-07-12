@@ -12,7 +12,7 @@ const About = () => {
         <div className="flex-shrink text-justify">
           <p>
             Hi, my name is Shaun Niel Ochavo. I am a Fullstack Web Developer. I
-            love creating interactive interfaces and developing web
+            love creating interactive interfaces and developing web and mobile
             applications.
           </p>
         </div>
